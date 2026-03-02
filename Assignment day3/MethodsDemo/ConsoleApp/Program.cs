@@ -1,0 +1,135 @@
+﻿using Utilities;
+using car;
+using OOPS_Demo;
+using ExtensionMethodsPractice;
+Cars mycar = new Cars("V8", "Mustang", "Red");
+mycar.DisplayCarInfo(mycar);
+mycar.PaintCar("Blue");
+namespace MethodsDemo
+{
+    class ParametersDemo
+    {
+        public void Configure(int timeout = 30, bool verbose = false)
+        {
+            Console.WriteLine($"Timeout set to: {timeout} seconds");
+            Console.WriteLine($"Verbose mode: {verbose}");
+
+        }
+
+        public void SetCount(out int count)
+        {
+            // database
+            // api
+            count = 42;
+        }
+
+
+        public int ParamsDemo(params int[] numbers)
+        {
+            // syntax sugar
+            var sum = 0;
+
+            foreach (var number in numbers)
+            {
+                sum += number;
+            }
+
+            return sum;
+        }
+
+        class Logger
+        {
+
+            public void Log(string message) { }
+
+            public int Log(int message) { return 0; }
+
+        }
+    }
+
+    class Student
+    {
+        public static int NumberOfStudents = 0;
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public Student(string Name, int Age)
+        {
+            this.Name = Name;
+            this.Age = Age;
+            NumberOfStudents++;
+        }
+
+        // public void Print(Student this)
+        public void Print()
+        {
+            Console.WriteLine($"Name: {this.Name}, Age: {this.Age} Student Count: {NumberOfStudents}");
+        }
+
+        // memory dump
+        // Dump Analyzer
+        public int DoubleTheAge(int muyltipBy = 2)
+        {
+            return this.Age * muyltipBy;
+        }
+
+    }
+
+    class Calculator
+    {
+        public int a { get; set; }
+        public int b { get; set; }
+
+        public Calculator(int a, int b)
+        {
+            this.a = a;
+            this.b = b;
+        }
+
+        public int Add()
+        {
+            return this.a + this.b;
+        }
+
+        public static int Add(int a, int b)
+        {
+            return a + b;
+        }
+    }
+
+
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            // var alice = new Student("Alice", 20);
+            // alice.Print();
+
+            // var bob = new Student("Bob", 22);
+            // bob.Print();
+
+            // var dave = new Student("Dave", 24);
+            // dave.Print();
+
+            // var charlie = new Student("Charlie", 26);
+            // charlie.Print();
+            Person emp = new Employee();
+            emp.Name = "Nikhil";
+            emp.Greet();
+            emp.DisplayRole();
+
+            Employee e = new Employee();
+            e.Salary = 60000;
+
+            Console.WriteLine($"Salary: {e.Salary}");
+            Console.WriteLine($"Bonus: {e.CalculateBonus(10)}");
+            Console.WriteLine($"Bonus with extra: {e.CalculateBonus(10, 2000)}");
+
+            Manager m = new Manager();
+            m.Name = "Rahul";
+            m.DisplayManagerRole();
+
+            Console.ReadLine();
+        }
+    }
+}
