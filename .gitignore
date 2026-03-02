@@ -1,0 +1,29 @@
+## --- .NET / C# Specifics ---
+# Build results
+**/[Bb]in/
+**/[Oo]bj/
+**/[Oo]ut/
+
+# Visual Studio files
+.vs/
+**/.vs/
+*.user
+*.userosscache
+*.sln.doccache
+*.suo
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.doccache
+
+# Common Tooling
+.vscode/
+.idea/
+*.swp
