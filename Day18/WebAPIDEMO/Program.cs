@@ -8,6 +8,11 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<CrmDbContext>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 
+builder.Services.AddAutoMapper(config =>
+{
+    config.AddProfile<CustomerProfile>();
+});
+
 builder.Services.AddDbContext<CrmDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("path")));
 

@@ -1,4 +1,6 @@
+using System.Diagnostics.Contracts;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 
     public class CrmDbContext: DbContext
@@ -39,4 +41,24 @@ public class CustomerService: ICustomerService
     {
         return dbContext.Customers.ToList();
     }
+}
+
+public class CustomerDTO
+{
+    public string fullName{get;set;}
+}
+
+public class CustomerProfile: Profile
+{
+    public CustomerProfile()
+    {
+        CreateMap<Customers,CustomerDTO>()
+            .ForMember(dest=>dest.fullName, opt=>opt.MapFrom(src=>src.name));
+    }
+    
+}
+
+public class CreateCustomerValidation
+{
+    
 }

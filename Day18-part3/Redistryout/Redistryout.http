@@ -1,0 +1,6 @@
+@Redistryout_HostAddress = http://localhost:5188
+
+GET {{Redistryout_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
