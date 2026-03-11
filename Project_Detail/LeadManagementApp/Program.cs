@@ -36,25 +36,7 @@ app.MapGet("/api/leads", async () =>
 
 
 
-var newLead= new Lead
-{
-    name = "Nikhil",
-    email = "Nikhil@gmail.com",
-    phone = "8999150297",
-    company = "revature",
-    position = "Software Engineer",
-    status = "New",
-    source = "Website",
-    priority = "High",
-    AssignedSalesRepId = "SR101",
-    CreatedDate = DateTime.UtcNow,
-    ModifiedDate = DateTime.UtcNow
-};
 
-
-await leadCollection.InsertOneAsync(newLead);
-
-Console.WriteLine("Inserted new Lead:"+newLead.name);
 
 var leads = await leadCollection.Find(_ => true).ToListAsync();
 
